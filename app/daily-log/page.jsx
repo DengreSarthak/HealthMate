@@ -35,10 +35,10 @@ const moodEmoji = {
 };
 
 export default function DailyLogPage() {
-  const [date, setDate] = useState<any>(new Date());
-  const [selectedMood, setSelectedMood] = useState<any>(null);
+  const [date, setDate] = useState(new Date());
+  const [selectedMood, setSelectedMood] = useState(null);
 
-  const handleSelect = (date: any) => {
+  const handleSelect = (date) => {
     setDate(date);
     if (date) {
       const mood = moodHistory.find(
@@ -91,7 +91,7 @@ export default function DailyLogPage() {
             {selectedMood ? (
               <div className="space-y-4">
                 <div className="text-4xl">
-                  {moodEmoji[selectedMood.mood as keyof typeof moodEmoji]}
+                  {moodEmoji[selectedMood.mood]}
                 </div>
                 <p className="text-sm text-muted-foreground">
                   {selectedMood.message}
